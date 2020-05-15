@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/scss/main.scss"
             ],
             "scripts": []
           },
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngtesting"
+    }
+  },
+  "defaultProject": "ngtesting",
+  "cli": {
+    "analytics": false
+  }
 }
