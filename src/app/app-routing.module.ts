@@ -26,6 +26,16 @@ const routes: Routes = [
       import('./modules/books/books.module').then((m) => m.BooksModule),
   },
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('./modules/books/books.module').then((m) => m.BooksModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
