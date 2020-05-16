@@ -3,9 +3,11 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-vote',
   template: `
-    <p>
-      vote works!
-    </p>
+    <p>Total votes: {{ totalVotes }}</p>
+    <button class="btn btn-primary" (click)="upVote()">
+      <i class="ti-arrow-up"></i>
+      Up Vote
+    </button>
   `,
   styleUrls: ['./vote.component.scss'],
 })

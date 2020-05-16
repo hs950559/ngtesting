@@ -1,1 +1,14 @@
-<p>lazy works!</p>
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-group">
+      <li class="list-group-item" (click)="loadComponent('VoteComponent')">
+        Vote
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <div class="card card-body">
+      <ng-container #compContainer></ng-container>
+    </div>
+  </div>
+</div>
