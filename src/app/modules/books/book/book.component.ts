@@ -19,9 +19,6 @@ export class BookComponent implements OnInit {
 
   ngOnInit(): void {
     const bookId = this.route.snapshot.paramMap.get('bookId');
-    console.log(bookId, 'HERRE');
-    this.book$ = this.bookService
-      .getAll()
-      .pipe(map((books) => books.find((book) => book._id === bookId)));
+    this.book$ = this.bookService.getOne(bookId);
   }
 }

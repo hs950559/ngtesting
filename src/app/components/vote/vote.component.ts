@@ -1,26 +1,57 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-vote',
   template: `
-    <p>Total votes: {{ totalVotes }}</p>
-    <button class="btn btn-primary" (click)="upVote()">
-      <i class="ti-arrow-up"></i>
-      Up Vote
-    </button>
+    <div class="voter">
+      <button
+        class="btn btn-info"
+        (click)="upVote()"
+        [class.disabled]="myVote == 1"
+      >
+        <i class="ti-arrow-up"></i>
+      </button>
+
+      <span class="vote-count mx-4">{{ totalVotes }}</span>
+
+      <button
+        class="btn btn-info"
+        (click)="downVote()"
+        [class.disabled]="myVote === -1"
+      >
+        <i class="ti-arrow-down"></i>
+      </button>
+    </div>
   `,
   styleUrls: ['./vote.component.scss'],
 })
-export class VoteComponent implements OnInit {
-  totalVotes = 0;
-  voteChanged = new EventEmitter();
+export class VoteComponent {
+  @Input() othersVote = 0;
+  @Input() myVote = 0;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Output() vote = new EventEmitter();
 
   upVote() {
-    this.totalVotes++;
-    this.voteChanged.emit(this.totalVotes);
+    if (this.myVote === 1) {
+      return;
+    }
+
+    this.myVote++;
+
+    this.vote.emit({ myVote: this.myVote });
+  }
+
+  downVote() {
+    if (this.myVote === -1) {
+      return;
+    }
+
+    this.myVote--;
+
+    this.vote.emit({ myVote: this.myVote });
+  }
+
+  get totalVotes() {
+    return this.othersVote + this.myVote;
   }
 }

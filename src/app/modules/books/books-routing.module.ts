@@ -11,9 +11,6 @@ export const routes: Routes = [
   {
     path: ':bookId',
     component: BookComponent,
-    // resolve: {
-    //   courses: BooksresolverService,
-    // },
   },
 ];
 
