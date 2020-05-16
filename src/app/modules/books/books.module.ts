@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '../../shared/material.module';
+import { MaterialModule } from '../material.module';
 import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './books.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';

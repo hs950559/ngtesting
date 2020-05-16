@@ -35,7 +35,6 @@ const materialModules = [
 ];
 
 @NgModule({
-  declarations: [],
   imports: [...materialModules],
   exports: [...materialModules],
 })
