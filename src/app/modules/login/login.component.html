@@ -1,0 +1,27 @@
+<form [formGroup]="form" (submit)="login()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      formControlName="name"
+      [class.is-invalid]="name.dirty && name.invalid"
+    />
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      formControlName="email"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
