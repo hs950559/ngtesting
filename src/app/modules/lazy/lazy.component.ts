@@ -5,6 +5,7 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
   ViewChild,
+  ComponentRef,
 } from '@angular/core';
 
 @Component({
@@ -15,7 +16,7 @@ import {
 export class LazyComponent implements OnInit, OnDestroy {
   @ViewChild('compContainer', { read: ViewContainerRef })
   compoContainer: ViewContainerRef;
-  components: any;
+  componentRef: ComponentRef<any>;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -25,19 +26,16 @@ export class LazyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   ngOnDestroy() {
-    // this.compo
+    this.componentRef.destroy();
   }
 
   renderComponent(component) {
     this.compoContainer.clear();
 
     const compFactory = this.cfr.resolveComponentFactory(component);
-    const componentRef: any = this.compoContainer.createComponent(compFactory);
+    this.componentRef = this.compoContainer.createComponent(compFactory);
 
-    console.log('HEMANT Tanya', componentRef);
-    // if (comp.data) {
-    //   componentRef.instance.data = comp.data;
-    // }
+    console.log('HEMANT', this.componentRef);
   }
 
   async loadComponent(compName) {
@@ -47,6 +45,13 @@ export class LazyComponent implements OnInit, OnDestroy {
           '../../components/vote/vote.component'
         );
         this.renderComponent(VoteComponent);
+        break;
+      }
+      case 'PipesComponent': {
+        const { PipesComponent } = await import(
+          '../../components/pipes/pipes.component'
+        );
+        this.renderComponent(PipesComponent);
         break;
       }
     }

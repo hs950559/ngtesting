@@ -1,2 +1,20 @@
-<p>demo works!</p>
-<button mat-button>OKKK</button>
+<p>Capitalise Pipe: {{ name | capitalize }}</p>
+<hr />
+<p>File Size Pipe: {{ size | fileSize }}</p>
+<hr />
+<p>Filter Pipe: filter by 's'</p>
+
+<ul>
+  <li *ngFor="let user of userArr | filter: 's'">
+    {{ user }}
+  </li>
+</ul>
+<hr />
+
+<p>Order By: name</p>
+<ul>
+  <li *ngFor="let user of users | orderBy: 'name':'asc'">
+    {{ user.name + '   ' + user.age }}
+  </li>
+</ul>
+<hr />
