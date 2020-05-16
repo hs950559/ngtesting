@@ -1,17 +1,29 @@
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'lazy',
-    loadChildren: () => import('./lazy/lazy.module').then((m) => m.LazyModule),
+    loadChildren: () =>
+      import('./modules/lazy/lazy.module').then((m) => m.LazyModule),
   },
   {
     path: 'demo',
-    loadChildren: () => import('./demo/demo.module').then((m) => m.DemoModule),
+    loadChildren: () =>
+      import('./modules/demo/demo.module').then((m) => m.DemoModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('./modules/books/books.module').then((m) => m.BooksModule),
   },
   {
     path: '',

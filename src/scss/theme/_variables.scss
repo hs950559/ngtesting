@@ -3,27 +3,31 @@
 //
 // Grayscale and brand colors for use across Bootstrap.
 
-$gray-dark:                 #263238;
-$gray:                      #607d8b;
-$gray-light:                #b0bec5;
-$gray-lighter:              #cfd8dc;
-$gray-lightest:             #eceff1;
+$gray-dark: #263238;
+$gray: #607d8b;
+$gray-light: #b0bec5;
+$gray-lighter: #cfd8dc;
+$gray-lightest: #eceff1;
 
-$brand-primary:         #2780E3 !default;
-$brand-success:         #3FB618 !default;
-$brand-info:            #9954BB !default;
-$brand-warning:         #FF7518 !default;
-$brand-danger:          #FF0039 !default;
+$brand-primary: #2780e3 !default;
+$brand-success: #3fb618 !default;
+$brand-info: #9954bb !default;
+$brand-warning: #ff7518 !default;
+$brand-danger: #ff0039 !default;
 
-$brand-primary-light:         #63c2de !default;
-
+$brand-primary-light: #63c2de !default;
 
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
+button:focus {
+  outline: none !important;
+  box-shadow: none;
+}
 
-$enable-transitions:        true;
-$enable-rounded:            false;
+$input-focus-box-shadow: none !default;
+$enable-transitions: true;
+$enable-rounded: false;
 
-$font-family-sans-serif:     SEGOEUIL, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-
+$font-family-sans-serif: SEGOEUIL, 'Helvetica Neue', Helvetica, Arial,
+  sans-serif !default;
