@@ -20,6 +20,8 @@ export class BooksComponent implements OnInit {
     this.booksSubscription = this.bookService.getAll().subscribe((res) => {
       this.books = res;
     });
+
+    this.getBookByAuthor();
   }
 
   removeBook(book: Book) {
@@ -63,6 +65,12 @@ export class BooksComponent implements OnInit {
         return;
       }
       this.books = [book, ...this.books];
+    });
+  }
+
+  getBookByAuthor() {
+    this.bookService.getBookByAuthor('Hemant').subscribe((res) => {
+      console.log('books', res);
     });
   }
 }
