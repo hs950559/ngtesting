@@ -26,7 +26,9 @@ export class BooksComponent implements OnInit {
 
   removeBook(book: Book) {
     this.bookService.delete(book._id).subscribe(() => {
-      this.books = this.books.filter((item) => item._id !== book._id);
+      this.books = this.books.filter((item) => {
+        return item._id !== book._id;
+      });
     });
   }
 
