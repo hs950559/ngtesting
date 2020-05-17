@@ -119,6 +119,38 @@ fdescribe('BookService', () => {
     });
   });
 
+  it('should fetch all books by given author', () => {
+    service.getBookByAuthor('Hemant').subscribe((books: any) => {
+      expect(books.length).toBeTruthy();
+      expect(books.length).toBe(2);
+    });
+
+    const req = testingController.expectOne((r) => r.url === url);
+    expect(req.request.method).toEqual('GET');
+    expect(req.request.params.get('author')).toEqual('Hemant');
+
+    req.flush([
+      {
+        _id: '5c53c3367939c803daef18ef',
+        title: 'JAVA 2',
+        author: 'Hemant',
+        price: 20,
+        isbn: 'dsDGFSDGFSD$%#SDS',
+        __v: 0,
+        name: 'Zoom zoom',
+        publishedDate: '2019-02-01T03:55:34.415Z',
+      },
+      {
+        _id: '5e931ea15bfcd70004f6949d',
+        name: 'Bad Book',
+        author: 'Hemant',
+        price: 89,
+        __v: 0,
+        publishedDate: '2020-04-12T13:58:46.383Z',
+      },
+    ]);
+  });
+
   afterEach(() => {
     // to make sure only one http call in each it block
     testingController.verify();
