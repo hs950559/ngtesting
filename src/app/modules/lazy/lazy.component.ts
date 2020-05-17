@@ -47,13 +47,6 @@ export class LazyComponent implements OnInit, OnDestroy {
         this.renderComponent(VoteComponent);
         break;
       }
-      case 'PipesComponent': {
-        const { PipesComponent } = await import(
-          '../../components/pipes/pipes.component'
-        );
-        this.renderComponent(PipesComponent);
-        break;
-      }
     }
   }
 }
