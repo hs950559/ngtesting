@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../../../models/book';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 const BASE_URL = 'https://hkauthapi.herokuapp.com/books/';
 
@@ -29,5 +29,11 @@ export class BookService {
 
   delete(bookId) {
     return this.http.delete(BASE_URL + bookId);
+  }
+
+  getBookByAuthor(authorName) {
+    const params = new HttpParams().set('author', authorName);
+
+    return this.http.get(BASE_URL, { params });
   }
 }
