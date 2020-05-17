@@ -7,7 +7,7 @@ import { BookService } from './book.service';
 import { BOOKS } from 'src/mocks/books';
 import { HttpErrorResponse } from '@angular/common/http';
 
-fdescribe('BookService', () => {
+describe('BookService', () => {
   let service: BookService;
   let testingController: HttpTestingController;
   const url = 'https://hkauthapi.herokuapp.com/books/';
